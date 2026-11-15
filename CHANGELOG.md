@@ -2,7 +2,7 @@
 
 ## v1.1.0 — Eerste publicatie voor HACS
 
-De eerste versie die we als officiële GitHub Release willen publiceren.
+De eerste officiële versie voor installatie en updates via HACS.
 
 ### Inbegrepen
 - Zelfstandige Home Assistant-dashboardkaart met het complete 60-dagenhapjesschema.
@@ -17,4 +17,5 @@ De eerste versie die we als officiële GitHub Release willen publiceren.
 ### Installatie
 Installeer de repository als aangepaste HACS-dashboardrepository en voeg daarna **60 Dagen Hapjesschema** toe als dashboardkaart.
 
-> Opmerking: deze changelog is de voorbereiding. Een officiële release met tag `v1.1.0` moet nog op GitHub worden gepubliceerd.
+**GitHub Release:** [v1.1.0](https://github.com/Gietje00/60-dagen-hapjesschema-card/releases/tag/v1.1.0).
+\n## Repositorypresentatie\n- Een herkenbaar kalenderlogo en een schaalbare dashboardpreview toegevoegd aan de GitHub-README.\n- De installatie-instructies en directe Home Assistant-link verduidelijkt.\n
