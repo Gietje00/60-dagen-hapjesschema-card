@@ -9,6 +9,9 @@ Een zelfstandige Nederlandse dashboardkaart voor Home Assistant, met een klikbaa
 Klik op de knop om deze dashboardkaart in jouw Home Assistant Marketplace te openen. Daar kun je de kaart toevoegen/downloaden. Gebruik je een oudere Home Assistant-versie met HACS? [Open de repository in HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Gietje00&repository=60-dagen-hapjesschema-card&category=plugin).
 
 ## Functies
+- De Vandaag-kaart toont **evenveel illustraties als blokjes** (bijv. 2 paprika’s bij 2 blokjes), plus het gewicht in gram
+- Een eigen **rode paprika als SVG-icoon** in overzicht, menu en legenda
+- Duidelijke portie-uitleg: **1 blokje = 10 gram** (ei en pindakaas houden hun aparte introductiehoeveelheden)
 - Start standaard met **dag 1** zodra je de kaart via de grafische kaartkiezer toevoegt.
 - Pas de startdatum via de grafische editor aan; de dag wordt automatisch berekend.
 - Toon de ingrediënten en hoeveelheden voor iedere dag.
@@ -39,7 +42,14 @@ show_legend: true
 ## Handmatige installatie
 Plaats `dist/60-dagen-hapjesschema-card.js` in `/config/www/60-dagen-hapjesschema-card.js` en voeg bij Home Assistant dashboardbronnen een JavaScript-module toe met URL `/local/60-dagen-hapjesschema-card.js`.
 
+## Wijzigingen in versie 1.1.0
+
+- Bij meerdere blokjes van hetzelfde ingrediënt verschijnt het overeenkomstige aantal pictogrammen in de Vandaag-kaart.
+- Het totaalgewicht wordt getoond, bijvoorbeeld **2 blokjes · 20 g**.
+- De paprika gebruikt een zelfgetekend rood SVG-icoon, zonder extra afbeeldingsbestanden.
+- Bij de Vandaag-kaart en legenda staat **1 blokje = 10 gram**.
+
 ## Bron en gebruik
 De iconen zijn eigen emoji/CSS-illustraties. De kaart is geen persoonlijk voedingskundig of medisch advies; overleg bij twijfel, zeker rond allergenen, met een deskundige.
 
-Versie: **1.0.0**. De kaart staat onder `dist/`; er is geen buildstap nodig.
+Versie: **1.1.0**. De kaart staat onder `dist/`; er is geen buildstap nodig.
