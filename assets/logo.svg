@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="60 Dagen Hapjesschema">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9fbef"/><stop offset="1" stop-color="#e7f0cb"/></linearGradient><linearGradient id="leaf" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#83b34b"/><stop offset="1" stop-color="#347936"/></linearGradient></defs>
+<rect x="8" y="8" width="496" height="496" rx="116" fill="url(#bg)" stroke="#3f873e" stroke-width="16"/>
+<rect x="96" y="92" width="320" height="290" rx="48" fill="url(#leaf)"/><rect x="119" y="165" width="274" height="196" rx="28" fill="#fffef4"/>
+<rect x="151" y="67" width="45" height="108" rx="23" fill="#17582e" stroke="#fffef4" stroke-width="7"/><rect x="315" y="67" width="45" height="108" rx="23" fill="#17582e" stroke="#fffef4" stroke-width="7"/>
+<text x="256" y="317" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="155" font-weight="800" fill="#07552e">60</text>
+<ellipse cx="295" cy="422" rx="143" ry="52" fill="#e6aa43"/><path d="M147 400 Q151 477 287 479 Q429 476 441 400 Z" fill="#fefbf0" stroke="#e8d7ad" stroke-width="10"/><ellipse cx="295" cy="393" rx="148" ry="54" fill="#fffef4" stroke="#e8d7ad" stroke-width="11"/><ellipse cx="295" cy="395" rx="121" ry="31" fill="#f6a323"/>
+<path d="M339 377 Q349 314 398 283" stroke="#3e8839" stroke-width="31" stroke-linecap="round" fill="none"/><ellipse cx="398" cy="275" rx="14" ry="31" transform="rotate(45 398 275)" fill="#5fac4c"/>
+<path d="M90 421 C54 361 59 317 100 300 C149 292 167 331 163 370 C155 419 121 465 90 421" fill="#ed4536" stroke="#b52b28" stroke-width="9"/><path d="M115 310 Q115 279 127 266" stroke="#278b40" stroke-width="14" stroke-linecap="round" fill="none"/>
+<path d="M137 443 Q203 407 213 444 Q212 465 145 485 Q113 489 137 443" fill="#f49c1c" stroke="#d87a15" stroke-width="7"/><path d="M181 428 Q203 403 234 412" stroke="#49883a" stroke-width="12" stroke-linecap="round" fill="none"/>
+</svg>
