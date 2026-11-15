@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" alt="60 Dagen Hapjesschema logo" width="160">
+  <img src="https://raw.githubusercontent.com/Gietje00/60-dagen-hapjesschema-card/main/assets/logo.png" alt="60 Dagen Hapjesschema logo" width="160" height="160">
 </p>
 
 <h1 align="center">60 Dagen Hapjesschema</h1>
@@ -27,9 +27,9 @@ Gebruik je de oudere HACS-weergave? [Open deze kaart in HACS](https://my.home-as
 
 ## Zo ziet de kaart eruit
 
-![Schematische voorbeeldweergave van 60 Dagen Hapjesschema, dag 34](assets/preview.svg)
+![Schematische voorbeeldweergave van 60 Dagen Hapjesschema, dag 34](https://raw.githubusercontent.com/Gietje00/60-dagen-hapjesschema-card/main/assets/preview.svg)
 
-*Voorbeeldweergave van de kaart met dag 34 geselecteerd. De daadwerkelijke weergave kan iets verschillen afhankelijk van je Home Assistant-thema en schermformaat.*
+*Voorbeeldweergave met dag 34 geselecteerd. De daadwerkelijke weergave kan per Home Assistant-thema en schermformaat verschillen. Het logo en de preview worden via directe afbeeldingslinks geladen, zodat ze ook op de HACS-detailpagina zichtbaar kunnen zijn.*
 
 ## Mogelijkheden
 
