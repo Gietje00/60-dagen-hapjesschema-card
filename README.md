@@ -1,55 +1,85 @@
-# 60 Dagen Hapjesschema — Home Assistant
+<p align="center">
+  <img src="assets/logo.svg" alt="60 Dagen Hapjesschema logo" width="160">
+</p>
 
-Een zelfstandige Nederlandse dashboardkaart voor Home Assistant, met een klikbaar 60-dagenoverzicht, een uitgelichte dagkaart en een verticale legenda. Geen helpers of extra integraties nodig.
+<h1 align="center">60 Dagen Hapjesschema</h1>
 
-## Direct openen in Home Assistant
+<p align="center">
+  Een overzichtelijke, interactieve <strong>Home Assistant-dashboardkaart</strong> voor het 60-dagenhapjesschema.
+  Met automatische dagtelling, een dagmenu en een verticale ingrediëntenlegenda.
+</p>
 
-[![Open de repository direct in Home Assistant Marketplace](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=Gietje00&repository=60-dagen-hapjesschema-card&category=plugin)
+<p align="center">
+  <a href="https://github.com/Gietje00/60-dagen-hapjesschema-card/releases/latest"><img alt="Laatste versie" src="https://img.shields.io/github/v/release/Gietje00/60-dagen-hapjesschema-card?style=flat-square"></a>
+  <a href="https://github.com/Gietje00/60-dagen-hapjesschema-card"><img alt="Home Assistant" src="https://img.shields.io/badge/Home%20Assistant-dashboardkaart-41BDF5?style=flat-square"></a>
+  <a href="https://github.com/Gietje00/60-dagen-hapjesschema-card/blob/main/CHANGELOG.md"><img alt="Wijzigingen" src="https://img.shields.io/badge/Changelog-bekijken-57833d?style=flat-square"></a>
+</p>
 
-Klik op de knop om deze dashboardkaart in jouw Home Assistant Marketplace te openen. Daar kun je de kaart toevoegen/downloaden. Gebruik je een oudere Home Assistant-versie met HACS? [Open de repository in HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Gietje00&repository=60-dagen-hapjesschema-card&category=plugin).
+## Direct installeren
 
-## Functies
-- De Vandaag-kaart toont **evenveel illustraties als blokjes** (bijv. 2 paprika’s bij 2 blokjes), plus het gewicht in gram
-- Een eigen **rode paprika als SVG-icoon** in overzicht, menu en legenda
-- Duidelijke portie-uitleg: **1 blokje = 10 gram** (ei en pindakaas houden hun aparte introductiehoeveelheden)
-- Start standaard met **dag 1** zodra je de kaart via de grafische kaartkiezer toevoegt.
-- Pas de startdatum via de grafische editor aan; de dag wordt automatisch berekend.
-- Toon de ingrediënten en hoeveelheden voor iedere dag.
-- Markeer de huidige dag en klik op andere dagen om vooruit of terug te kijken.
-- Toon/verberg de Vandaag-kaart en de verticale legenda.
-- Past zich aan aan telefoon, tablet en desktop; stopt na dag 60.
+<p align="center">
+  <a href="https://my.home-assistant.io/redirect/marketplace_repository/?owner=Gietje00&repository=60-dagen-hapjesschema-card&category=plugin">
+    <img src="https://my.home-assistant.io/badges/marketplace_repository.svg" alt="Open deze repository in Home Assistant Marketplace">
+  </a>
+</p>
+
+Gebruik je de oudere HACS-weergave? [Open deze kaart in HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Gietje00&repository=60-dagen-hapjesschema-card&category=plugin).
+
+## Zo ziet de kaart eruit
+
+![Schematische voorbeeldweergave van 60 Dagen Hapjesschema, dag 34](assets/preview.svg)
+
+*Voorbeeldweergave van de kaart met dag 34 geselecteerd. De daadwerkelijke weergave kan iets verschillen afhankelijk van je Home Assistant-thema en schermformaat.*
+
+## Mogelijkheden
+
+- **60 dagen overzicht:** klik op een dag om de bijbehorende ingrediënten te bekijken.
+- **Automatische dagtelling:** start standaard op dag 1; pas de startdatum aan in de grafische kaarteditor.
+- **Vandaag op het menu:** aparte kaart met ingrediënten en porties.
+- **Blokjes en gramgewicht:** twee blokjes worden ook als twee icoontjes weergegeven; **1 blokje = 10 gram**.
+- **Rode paprika:** een zelfgetekend SVG-icoon in plaats van de groene paprika-emoji.
+- **Introductie van ei en pindakaas:** aparte hoeveelheidsinstructies volgens het aangeleverde schema.
+- **Verticale legenda:** overzicht van de voedingsmiddelen; optioneel te verbergen.
+- **Responsive:** werkt op telefoon, tablet en een groot dashboard.
+- **Geen extra helpers of sensoren** nodig.
 
 ## Installatie via HACS
-1. Open **HACS** → menu **⋮** → **Aangepaste repositories**.
-2. Voeg `https://github.com/Gietje00/60-dagen-hapjesschema-card` toe als type **Dashboard**.
-3. Open de repository in HACS en kies **Downloaden** of **Installeren**.
-4. Herlaad Home Assistant in de browser.
-5. Open je dashboard → **Bewerken** → **Kaart toevoegen** → **60 Dagen Hapjesschema**.
-6. Stel indien gewenst de startdatum in bij de kaartinstellingen.
 
-## YAML
-Wanneer je de kaart via de kaartkiezer toevoegt, wordt de startdatum automatisch opgeslagen. Voor handmatige YAML leg je die zelf vast:
+1. Open **HACS** in Home Assistant.
+2. Ga naar **⋮ → Aangepaste repositories**.
+3. Voeg `https://github.com/Gietje00/60-dagen-hapjesschema-card` toe als **Dashboard**-repository.
+4. Open de kaart in HACS en klik op **Downloaden/Installeren**.
+5. Vernieuw de browser of het dashboard.
+6. Ga naar **Dashboard bewerken → Kaart toevoegen → 60 Dagen Hapjesschema**.
+7. Stel eventueel de **startdatum** in. De kaart berekent de huidige dag automatisch.
+
+## Instellen
+
+De standaardinstellingen vind je in de grafische kaarteditor. Wie liever YAML gebruikt, kan deze kaart handmatig toevoegen:
 
 ```yaml
 type: custom:hapjesschema-60-dagen-card
-start_date: '2026-10-13'
+start_date: "2026-10-13"
 show_today: true
 show_legend: true
 ```
 
-**Opmerking:** bij handmatig invoeren zonder `start_date` neemt de kaart de huidige datum als tijdelijke standaard, waardoor hij bij iedere paginaweergave op dag 1 begint.
+De startdatum in dit voorbeeld is alleen ter illustratie. Bij toevoegen via de kaartkiezer wordt de dag waarop je de kaart toevoegt als startdatum vastgelegd. Bij handmatige YAML zonder `start_date` gebruikt de kaart de huidige datum bij het laden; leg de datum dus vast als je wilt dat de telling automatisch doorloopt.
 
-## Handmatige installatie
-Plaats `dist/60-dagen-hapjesschema-card.js` in `/config/www/60-dagen-hapjesschema-card.js` en voeg bij Home Assistant dashboardbronnen een JavaScript-module toe met URL `/local/60-dagen-hapjesschema-card.js`.
+## Handmatig installeren
 
-## Wijzigingen in versie 1.1.0
+Download `dist/60-dagen-hapjesschema-card.js` en plaats het bestand in `/config/www/60-dagen-hapjesschema-card.js`. Voeg daarna bij de Home Assistant-dashboardbronnen `/local/60-dagen-hapjesschema-card.js` toe als **JavaScript-module**.
 
-- Bij meerdere blokjes van hetzelfde ingrediënt verschijnt het overeenkomstige aantal pictogrammen in de Vandaag-kaart.
-- Het totaalgewicht wordt getoond, bijvoorbeeld **2 blokjes · 20 g**.
-- De paprika gebruikt een zelfgetekend rood SVG-icoon, zonder extra afbeeldingsbestanden.
-- Bij de Vandaag-kaart en legenda staat **1 blokje = 10 gram**.
+## Updates
 
-## Bron en gebruik
-De iconen zijn eigen emoji/CSS-illustraties. De kaart is geen persoonlijk voedingskundig of medisch advies; overleg bij twijfel, zeker rond allergenen, met een deskundige.
+Nieuwe versies worden gepubliceerd onder [GitHub Releases](https://github.com/Gietje00/60-dagen-hapjesschema-card/releases). Als de kaart via HACS is geïnstalleerd, kan HACS nieuwe releases detecteren en een update aanbieden. Zie ook de [changelog](CHANGELOG.md).
 
-Versie: **1.1.0**. De kaart staat onder `dist/`; er is geen buildstap nodig.
+## Over het schema
+
+De dagindeling is gebaseerd op een door de gebruiker aangeleverde 60-dagenposter van *Mama Roos Kookt*. Deze communitykaart is geen officiële uitgave van de maker. De illustraties zijn eigen emoji-, CSS- en SVG-ontwerpen.
+
+Het schema is bedoeld als visuele planning en vervangt geen persoonlijk voedingskundig of medisch advies. Bespreek vragen over bijvoeding en allergenen met een deskundige.
+
+---
+
+<p align="center"><sub>Gemaakt voor Home Assistant · 60 Dagen Hapjesschema · versie 1.1.0</sub></p>
