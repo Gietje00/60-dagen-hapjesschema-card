@@ -2,12 +2,12 @@
  * 60 Dagen Hapjesschema Card — standalone Lovelace dashboard card.
  * Eigen illustraties; geen afbeeldingen of broncode van derden ingebed.
  * Schema is handmatig overgenomen van een door de gebruiker aangeleverde poster.
- * v1.0.0
+ * v1.1.0
  */
 (() => {
   'use strict';
 
-  const VERSION = '1.0.0';
+  const VERSION = '1.1.0';
   const TYPE = 'hapjesschema-60-dagen-card';
   const FOOD = {
     pompoen:        { label: 'Pompoen',        color: '#f1a311', emoji: '🎃' },
@@ -92,8 +92,11 @@
   };
   const formatDate = (d) => validDate(d) ? new Intl.DateTimeFormat('nl-NL', {day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(`${d}T12:00:00Z`)) : 'Niet ingesteld';
   const escapeHTML = (s) => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  // Zelfgetekende rode paprika (geen emoji of externe afbeelding nodig).
+  const redPepper = "<svg class=\"pepper-svg\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M30 19C20 12 10 17 8 29c-3 15 4 29 13 29 5 0 8-3 11-3s6 3 11 3c9 0 16-14 13-29-2-12-12-17-22-10Z\" fill=\"#dc342f\" stroke=\"#9a2126\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/><path d=\"M30 20C17 19 16 31 18 43c1 6 4 11 7 14\" fill=\"none\" stroke=\"#f57558\" stroke-width=\"5\" stroke-linecap=\"round\" opacity=\".75\"/><path d=\"M35 20c12 0 13 12 11 23-1 6-4 11-7 14\" fill=\"none\" stroke=\"#ac2729\" stroke-width=\"4\" stroke-linecap=\"round\" opacity=\".6\"/><path d=\"M32 22c-3-8-1-12 4-16\" fill=\"none\" stroke=\"#287d37\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M31 22c-7-8-13-8-17-6 6 6 11 8 17 6Zm1 0c7-8 14-8 19-6-7 6-13 8-19 6Z\" fill=\"#4f9b42\" stroke=\"#287d37\" stroke-width=\"2\" stroke-linejoin=\"round\"/></svg>";
   const icon = (key, size = 'small') => {
     const f = FOOD[key];
+    if (key === 'paprika') return `<span class="food-icon ${size}" title="${escapeHTML(f.label)}" aria-hidden="true">${redPepper}</span>`;
     return `<span class="food-icon ${size}" title="${escapeHTML(f.label)}" style="--food-color:${f.color}" aria-hidden="true"><span class="cube"></span><span class="food-emoji">${f.emoji}</span></span>`;
   };
   const foodGroup = (meal) => {
@@ -133,11 +136,14 @@
     .food-icon{position:relative;display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;flex:none}
     .food-icon .cube{width:75%;height:72%;border-radius:4px;background:var(--food-color);border:1px solid #0002;box-shadow:inset 2px 2px #fff7,inset -2px -2px #0002;transform:rotate(-7deg)}
     .food-icon .food-emoji{position:absolute;font-size:17px;line-height:1;filter:drop-shadow(0 1px 1px #0002)}.food-icon.big{width:43px;height:43px}.food-icon.big .food-emoji{font-size:28px}
+    .pepper-svg{width:100%;height:100%;display:block;filter:drop-shadow(0 1px 1px #0002)}
     .note{font-size:12px;line-height:1.45;background:#f2f6e8;color:#536340;border-radius:12px;padding:10px;margin-top:12px}
     .hero{display:flex;align-items:center;gap:8px;background:linear-gradient(125deg,#4d7734,#79974a);border-radius:14px;padding:14px;color:white}
     .hero .cal{font-size:25px}.hero strong{font-size:20px}.hero small{display:block;opacity:.88;margin-top:2px}
     .hero.focus{background:linear-gradient(125deg,#6b8b4f,#a0ae62)}
-    .detail-head{font-size:13px;font-weight:700;margin:13px 0 8px}.food-line{display:flex;align-items:center;gap:8px;margin:8px 0;min-width:0}.food-line .label{font-size:13px;line-height:1.2;overflow-wrap:anywhere}.amount{font-size:11px;opacity:.66;margin-left:auto;flex:none}
+    .detail-head{font-size:13px;font-weight:700;margin:13px 0 8px}.food-line{display:flex;align-items:center;gap:8px;margin:8px 0;min-width:0}.food-line .label{font-size:13px;line-height:1.2;overflow-wrap:anywhere;flex:1;min-width:0}.amount{font-size:10.5px;font-weight:700;margin-left:auto;flex:none;white-space:nowrap;background:#e7f0d7;color:#416a2a;border-radius:999px;padding:4px 6px}
+    .food-icons{display:inline-flex;gap:1px;align-items:center;flex:none}.food-icons .food-icon{height:24px;width:24px}.food-icons .food-emoji{font-size:15px}
+    .portion-note{font-size:11px;color:var(--secondary-text-color,#66715c);margin:-1px 0 11px}
     .meal{padding:10px;border-radius:13px;background:var(--secondary-background-color,#f7f8f3);margin-bottom:8px}.meal-title{font-size:12px;font-weight:750;color:var(--primary-text-color,#34442c);margin:0 0 6px}
     .allergen{margin-top:10px;padding:10px;border-radius:11px;background:#faf1df;font-size:12px;color:#6d5431;line-height:1.5}.allergen b{display:block;margin-bottom:3px}
     .legend .legend-list{display:flex;flex-direction:column;gap:8px;max-height:740px;overflow:auto}.legend-item{display:flex;align-items:center;gap:7px;font-size:11.5px;line-height:1.25}.legend-item span:last-child{min-width:0}
@@ -192,7 +198,7 @@
       }).join('');
       const mealBlock = (meal,i) => {
         const items=foodGroup(meal);
-        return `<div class="meal"><div class="meal-title">${meals.length>1?`Hapje ${i+1}`:'Op het menu'}</div>${items.map(({key,count})=>`<div class="food-line">${icon(key)}<span class="label">${escapeHTML(FOOD[key].label)}</span><span class="amount">${key==='ei'||key==='pindakaas'?'zie onder':`${count} ${count===1?'blokje':'blokjes'}`}</span></div>`).join('')}</div>`;
+        return `<div class="meal"><div class="meal-title">${meals.length>1?`Hapje ${i+1}`:'Op het menu'}</div>${items.map(({key,count})=>`<div class="food-line"><span class="food-icons" aria-hidden="true">${Array.from({length:count},()=>icon(key)).join('')}</span><span class="label">${escapeHTML(FOOD[key].label)}</span><span class="amount">${key==='ei'||key==='pindakaas'?'zie onder':`${count} ${count===1?'blokje':'blokjes'} · ${count*10} g`}</span></div>`).join('')}</div>`;
       };
       const hasEgg=meals.some(m=>m.includes('ei'));
       const hasPeanut=meals.some(m=>m.includes('pindakaas'));
@@ -201,8 +207,8 @@
         <header class="head"><div class="brand"><div class="brand-mark">🥕</div><div><h2>60 dagen hapjesschema</h2><p class="sub">Startdatum: ${escapeHTML(formatDate(start))} · ${escapeHTML(progress)}</p></div></div>${this._selectedDay?'<button class="today-button" data-action="today">Terug naar vandaag</button>':''}</header>
         <div class="layout ${layoutClass}">
           <section class="panel"><div class="panel-head"><strong>60 dagen overzicht</strong><small>${escapeHTML(title)}</small></div><div class="days-grid">${grid}</div><div class="note">${escapeHTML(intro)} ${before?'Het schema begint op de ingestelde startdatum.':done?'Je kunt eerdere dagen nog bekijken.':viewing>=37?'Vanaf dag 37 zijn het twee hapjes per dag.':''}</div></section>
-          ${showToday?`<section class="panel"><div class="hero ${viewing!==currentDay?'focus':''}"><span class="cal">📅</span><span><strong>${viewing===currentDay&&!before?'Vandaag':`Dag ${viewing}`}</strong><small>${before?'Vooruitblik':done?'Voltooid':viewing===currentDay?`Dag ${viewing}`:`Geselecteerd: dag ${viewing}`}</small></span></div><div class="detail-head">${viewing===currentDay&&!before?'Vandaag op het menu':`Menu dag ${viewing}`}</div>${meals.map(mealBlock).join('')}${allergenInfo?`<div class="allergen">${allergenInfo}</div>`:''}${viewing>=37?'<div class="note">Vanaf dag 37: twee hapjes per dag, volgens het schema.</div>':''}</section>`:''}
-          ${showLegend?`<section class="panel legend"><div class="panel-head"><strong>Legenda</strong><small>Per blokje gepureerd hapje</small></div><div class="legend-list">${LEGEND.map(key=>`<div class="legend-item">${icon(key)}<span>${escapeHTML(FOOD[key].label)}</span></div>`).join('')}</div></section>`:''}
+          ${showToday?`<section class="panel"><div class="hero ${viewing!==currentDay?'focus':''}"><span class="cal">📅</span><span><strong>${viewing===currentDay&&!before?'Vandaag':`Dag ${viewing}`}</strong><small>${before?'Vooruitblik':done?'Voltooid':viewing===currentDay?`Dag ${viewing}`:`Geselecteerd: dag ${viewing}`}</small></span></div><div class="detail-head">${viewing===currentDay&&!before?'Vandaag op het menu':`Menu dag ${viewing}`}</div><div class="portion-note">1 blokje = 10 gram</div>${meals.map(mealBlock).join('')}${allergenInfo?`<div class="allergen">${allergenInfo}</div>`:''}${viewing>=37?'<div class="note">Vanaf dag 37: twee hapjes per dag, volgens het schema.</div>':''}</section>`:''}
+          ${showLegend?`<section class="panel legend"><div class="panel-head"><strong>Legenda</strong><small>1 blokje = 10 gram</small></div><div class="legend-list">${LEGEND.map(key=>`<div class="legend-item">${icon(key)}<span>${escapeHTML(FOOD[key].label)}</span></div>`).join('')}</div></section>`:''}
         </div><div class="foot"><span>Schema overgenomen uit de aangeleverde 60-dagenposter</span><span>v${VERSION}</span></div>
       </ha-card>`;
       this.shadowRoot.innerHTML=card;
