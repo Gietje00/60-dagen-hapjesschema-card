@@ -2,6 +2,12 @@
 
 Een zelfstandige Nederlandse dashboardkaart voor Home Assistant, met een klikbaar 60-dagenoverzicht, een uitgelichte dagkaart en een verticale legenda. Geen helpers of extra integraties nodig.
 
+## Direct openen in Home Assistant
+
+[![Open de repository direct in Home Assistant Marketplace](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=Gietje00&repository=60-dagen-hapjesschema-card&category=plugin)
+
+Klik op de knop om deze dashboardkaart in jouw Home Assistant Marketplace te openen. Daar kun je de kaart toevoegen/downloaden. Gebruik je een oudere Home Assistant-versie met HACS? [Open de repository in HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Gietje00&repository=60-dagen-hapjesschema-card&category=plugin).
+
 ## Functies
 - Start standaard met **dag 1** zodra je de kaart via de grafische kaartkiezer toevoegt.
 - Pas de startdatum via de grafische editor aan; de dag wordt automatisch berekend.
