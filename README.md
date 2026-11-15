@@ -40,6 +40,6 @@ show_legend: true
 Plaats `dist/60-dagen-hapjesschema-card.js` in `/config/www/60-dagen-hapjesschema-card.js` en voeg bij Home Assistant dashboardbronnen een JavaScript-module toe met URL `/local/60-dagen-hapjesschema-card.js`.
 
 ## Bron en gebruik
-De dagindeling is overgenomen van een door de gebruiker aangeleverde poster van *Mama Roos Kookt*. De iconen zijn eigen emoji/CSS-illustraties; dit is geen officiële uitgave van de maker van de poster. De kaart is geen persoonlijk voedingskundig of medisch advies; overleg bij twijfel, zeker rond allergenen, met een deskundige.
+De iconen zijn eigen emoji/CSS-illustraties. De kaart is geen persoonlijk voedingskundig of medisch advies; overleg bij twijfel, zeker rond allergenen, met een deskundige.
 
 Versie: **1.0.0**. De kaart staat onder `dist/`; er is geen buildstap nodig.
